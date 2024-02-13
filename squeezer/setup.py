@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="df-squeezer",
+    name="df_squeezer",
     version="0.0.5",
     author="Perttu Isotalo, Kenneth Breugelmans",
     author_email="perttu.isotalo@gmail.com, kennethbreugelmans@gmail.com",

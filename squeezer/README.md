@@ -1,6 +1,6 @@
-# DF-Squeezer
+# DF_Squeezer
 
-DF-Squeezer is a Python package designed to help reduce the memory usage of pandas DataFrames. By analyzing the data
+DF_Squeezer is a Python package designed to help reduce the memory usage of pandas DataFrames. By analyzing the data
 types of DataFrame columns, DF-Squeezer suggests and can automatically apply data type conversions that are more
 memory-efficient without losing information.
 
@@ -15,7 +15,7 @@ memory-efficient without losing information.
 To install DF-Squeezer, run the following command in your terminal:
 
 ```sh
-pip install df-squeezer
+pip install df_squeezer
 ```
 
 Ensure you have pandas installed in your environment as it is a required dependency.
@@ -23,22 +23,23 @@ Ensure you have pandas installed in your environment as it is a required depende
 ## Usage
 
 ```
-from df_squeezer import df_squeezer
+import df_squeezer
 import pandas as pd
 
 # Sample DataFrame
-df = pd.DataFrame({
-    'a': range(1000),
-    'b': [float(i) for i in range(1000)],
-    'c': ['category' + str(i % 3) for i in range(1000)]
-})
+df = pd.DataFrame(
+    {
+        "a": range(1000),
+        "b": [float(i) for i in range(1000)],
+        "c": ["category" + str(i % 3) for i in range(1000)],
+    }
+)
 
 # Use df_squeeze to analyze and report potential dtype conversions
-optimized_df = df_squeezer(df, report=True, edit=False)
+optimized_df = df_squeezer.df_squeezer(df, report=True, edit=False)
 
 # To directly apply the suggested conversions
-optimized_df = df_squeezer(df, report=True, edit=True)
-
+optimized_df = df_squeezer.df_squeezer(df, report=True, edit=True)
 
 ```
 
