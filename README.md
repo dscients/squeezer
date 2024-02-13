@@ -23,21 +23,23 @@ Ensure you have pandas installed in your environment as it is a required depende
 ## Usage
 
 ```
-from df_squeezer import df_squeeze
+from df_squeezer import df_squeezer
 import pandas as pd
 
 # Sample DataFrame
-df = pd.DataFrame({
-    'a': range(1000),
-    'b': [float(i) for i in range(1000)],
-    'c': ['category' + str(i % 3) for i in range(1000)]
-})
+df = pd.DataFrame(
+    {
+        "a": range(1000),
+        "b": [float(i) for i in range(1000)],
+        "c": ["category" + str(i % 3) for i in range(1000)],
+    }
+)
 
 # Use df_squeeze to analyze and report potential dtype conversions
-optimized_df = df_squeeze(df, report=True, edit=False)
+optimized_df = df_squeezer(df, report=True, edit=False)
 
 # To directly apply the suggested conversions
-optimized_df = df_squeeze(df, report=True, edit=True)
+optimized_df = df_squeezer(df, report=True, edit=True)
 
 
 ```
@@ -45,11 +47,14 @@ optimized_df = df_squeeze(df, report=True, edit=True)
 ## Example
 
 **Input:**
+
 ```
 df = pd.read_csv('data.csv')
 df.info(memory_usage='deep')
 ```
+
 **Output:**
+
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 307511 entries, 0 to 307510
@@ -59,11 +64,14 @@ memory usage: 536.7 MB
 ```
 
 **Input:**
+
 ```
 df_squeezed = df_squeeze(df, report=False, edit=True)
 df_squeezed.info(memory_usage='deep')
 ```
+
 **Output:**
+
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 307511 entries, 0 to 307510
