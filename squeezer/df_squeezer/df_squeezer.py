@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import math
 
 
 def df_squeezer(df, report=True, edit=False):
@@ -43,9 +44,9 @@ def df_squeezer(df, report=True, edit=False):
 
     if report:
         new_memory_usage = df.memory_usage(deep=True).sum()
-        print(f"\nOriginal total memory usage: {convert_size(original_memory_usage):,}")
-        print(f"New total memory usage: {convert_size(new_memory_usage):,}")
-        print(f"Memory saved: {convert_size(original_memory_usage - new_memory_usage):,}")
+        print(f"\nOriginal total memory usage: {convert_size(original_memory_usage)}")
+        print(f"New total memory usage: {convert_size(new_memory_usage)}")
+        print(f"Memory saved: {convert_size(original_memory_usage - new_memory_usage)}")
 
         # Print executable Python code for suggestions
         print("\n# Executable Python code for suggested dtype conversions:")
@@ -55,10 +56,11 @@ def df_squeezer(df, report=True, edit=False):
     return df
 
 def convert_size(size_bytes):
-   if size_bytes == 0:
-       return "0 Bytes"
-   size_name = (" Bytes", "KiloBytes", "MegaBytes", "GigaBytes", "TerraBytes", "PetaBytes", "ExaBytes", "ZettaBytes", "YottaBytes")
-   i = int(math.floor(math.log(size_bytes, 1024)))
-   p = math.pow(1024, i)
-   s = round(size_bytes / p, 2)
-   return "%s %s" % (s, size_name[i])
+    if size_bytes == 0:
+        return "0 Bytes"
+    
+    size_name = (" Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+    i = int(math.floor(math.log(size_bytes, 1024)))
+    p = math.pow(1024, i)
+    s = round(size_bytes / p, 2)
+    return f"{s} {size_name[i]}"
