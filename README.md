@@ -1,2 +1,3 @@
-# squeezer
+# df-squeezer
+
 Dataframe datatype optimizer
