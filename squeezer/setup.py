@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="df_squeezer",
-    version="0.0.10",
+    version="0.0.11",
     author="Perttu Isotalo, Kenneth Breugelmans",
     author_email="perttu.isotalo@gmail.com, kennethbreugelmans@gmail.com",
     description="A small package to optimize memory usage of Pandas DataFrames",
