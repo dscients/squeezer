@@ -23,7 +23,7 @@ Ensure you have pandas installed in your environment as it is a required depende
 ## Usage
 
 ```
-from df_squeezer import df_squeeze
+from df_squeezer import df_squeezer
 import pandas as pd
 
 # Sample DataFrame
@@ -34,10 +34,10 @@ df = pd.DataFrame({
 })
 
 # Use df_squeeze to analyze and report potential dtype conversions
-optimized_df = df_squeeze(df, report=True, edit=False)
+optimized_df = df_squeezer(df, report=True, edit=False)
 
 # To directly apply the suggested conversions
-optimized_df = df_squeeze(df, report=True, edit=True)
+optimized_df = df_squeezer(df, report=True, edit=True)
 
 
 ```

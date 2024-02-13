@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-def df_squeeze(df, report=True, edit=False):
+def df_squeezer(df, report=True, edit=False):
     """
     Enhance memory usage of a pandas DataFrame by suggesting or applying dtype conversions.
 
