@@ -42,6 +42,36 @@ optimized_df = df_squeeze(df, report=True, edit=True)
 
 ```
 
+## Example
+
+**Input:**
+```
+df = pd.read_csv('data.csv')
+df.info(memory_usage='deep')
+```
+**Output:**
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 307511 entries, 0 to 307510
+Columns: 122 entries, SK_ID_CURR to AMT_REQ_CREDIT_BUREAU_YEAR
+dtypes: float64(65), int64(41), object(16)
+memory usage: 536.7 MB
+```
+
+**Input:**
+```
+df_squeezed = df_squeeze(df, report=False, edit=True)
+df_squeezed.info(memory_usage='deep')
+```
+**Output:**
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 307511 entries, 0 to 307510
+Columns: 122 entries, SK_ID_CURR to AMT_REQ_CREDIT_BUREAU_YEAR
+dtypes: category(16), float32(64), float64(1), int16(2), int32(2), int8(37)
+memory usage: 96.5 MB
+```
+
 ## Parameters
 
 df (pd.DataFrame): The input DataFrame to analyze and optimize.
