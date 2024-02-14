@@ -3,14 +3,14 @@ import numpy as np
 import math
 
 
-def df_squeezer(df, report=True, edit=False):
+def df_squeezer(df, report=True, edit=True):
     """
     Enhance memory usage of a pandas DataFrame by suggesting or applying dtype conversions.
 
     Parameters:
         df (pd.DataFrame): The input DataFrame.
         report (bool): If True, prints suggested changes.
-        edit (bool): If True, applies the suggested dtype conversions directly to the DataFrame.
+        edit (bool): If True, applies the suggested dtype conversions directly to the DataFrame. Set to False to only report the suggestions.
 
     Returns:
         pd.DataFrame: DataFrame with applied changes if edit=True. Otherwise, returns the original DataFrame.
